@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Rajshree ❤️</title>
+    <style>
+        :root {
+            --outer-dark: #1a0f0d;
+            --main-beige: #fff5ee; 
+            --accent-red: #b91d1d;
+            --decorative-gold: #c6a664;
+        }
+
+        body {
+            margin: 0; padding: 0; min-height: 100vh;
+            background: radial-gradient(circle, #2d1b15 0%, var(--outer-dark) 100%);
+            font-family: 'Georgia', serif;
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 88%; max-width: 440px;
+            background: linear-gradient(145deg, var(--main-beige), #f9e2d2);
+            padding: 35px 25px; border-radius: 50px;
+            text-align: center;
+            position: relative; z-index: 10;
+            border: 4px solid var(--decorative-gold);
+            outline: 10px solid var(--main-beige);
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.9);
+        }
+
+        .page { display: none; animation: fadeIn 0.8s ease-in-out; }
+        .active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+
+        .main-img {
+            width: 100%; height: 260px; object-fit: cover;
+            border-radius: 25px; border: 6px solid white;
+            box-shadow: 0 15px 30px rgba(185, 29, 29, 0.15);
+            margin-bottom: 15px;
+        }
+
+        /* Fixed Button Area */
+        .btn-box { 
+            height: 200px; 
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin-top: 20px;
+            border-top: 1px dashed var(--decorative-gold);
+            padding-top: 20px;
+        }
+        
+        button {
+            padding: 15px 30px; border-radius: 50px; border: none;
+            font-size: 1rem; cursor: pointer; transition: 0.3s;
+            font-family: 'serif'; font-weight: bold;
+        }
+
+        .yes-btn { background: var(--accent-red); color: white; width: 180px; z-index: 20; box-shadow: 0 6px 0px #7f1d1d; }
+
+        .no-btn { 
+            background: #e3d5ca; color: #7f5539; 
+            width: 120px; position: absolute; top: 90px; left: 50%;
+            margin-left: -60px; z-index: 10;
+        }
+
+        .nav-btn-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        
+        .back-link { background: transparent; color: #8d7b68; border: 1px solid #d5bdaf; font-size: 0.8rem; padding: 10px 20px; }
+
+        .quote-box { 
+            font-style: italic; color: #432818; font-size: 0.9rem; 
+            line-height: 1.6; margin: 15px 0; padding: 12px;
+            background: rgba(255, 255, 255, 0.5); border-radius: 15px;
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .movie-title { font-size: 0.7rem; display: block; margin-top: 5px; color: var(--decorative-gold); font-weight: bold; }
+
+        /* Giphy Sticker Styles */
+        .giphy-sticker { position: absolute; width: 85px; z-index: 100; pointer-events: none; }
+
+        .drop { position: fixed; top: -50px; pointer-events: none; z-index: 999; animation: fall 5s linear forwards; }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHRhcHh0ZG52ZW80Y3J3OXV6a29zNnZma2llN2V1NTUxZWFqYmd0MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LTcau7EnQLhHkxxG2u/giphy.gif" class="giphy-sticker" style="top: -60px; left: 50%; transform: translateX(-50%);">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzE4OGN6ZXFicGh3OTFkOHdndDc0d3RkbmtjamVqdHQ0NDNrbm5tYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Zl7u48zLVFgLpRwq6f/giphy.gif" class="giphy-sticker" style="bottom: -30px; left: -20px;">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWVma25kcnQ4cmgyc2ZwMjk4NWJld2wyZHdnaW04N3puOGNza2gwNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yZ7Xya4covzN1WhOAa/giphy.gif" class="giphy-sticker" style="bottom: 20px; right: -40px; width: 60px;">
+
+        <div id="p1" class="page active">
+            <h1 style="color: var(--accent-red); margin: 0;">Rajshree...</h1>
+            <img src="her1.jpg.jpeg" class="main-img">
+            <div class="quote-box">
+                "I vow to fiercely love you in all your forms, now and forever."
+                <span class="movie-title">— The Vow</span>
+            </div>
+            <h3>Will you be my Valentine? ❤️</h3>
+            <div class="btn-box" id="containerBox">
+                <button class="yes-btn" onclick="celebrateSuccess()">YES! ❤️</button>
+                <button class="no-btn" id="noBtn" onmouseover="guiltTrip()" onclick="guiltTrip()">No</button>
+            </div>
+        </div>
+
+        <div id="p2" class="page">
+            <img src="her2.jpg.jpeg" class="main-img">
+            <div class="quote-box">
+                "I've never loved anyone the way I love you."
+                <span class="movie-title">— Meet Joe Black</span>
+            </div>
+            <div class="nav-btn-container">
+                <button class="back-link" onclick="prevPage(1)">← Back</button>
+                <button class="yes-btn" style="width: auto;" onclick="nextPage(3)">Continue ✨</button>
+            </div>
+        </div>
+
+        <div id="p3" class="page">
+            <img src="her3.jpg.jpeg" class="main-img">
+            <div class="quote-box">
+                "The best love is the kind that awakens the soul."
+                <span class="movie-title">— The Notebook</span>
+            </div>
+            <div class="nav-btn-container">
+                <button class="back-link" onclick="prevPage(2)">← Back</button>
+                <button class="yes-btn" style="width: auto;" onclick="nextPage(4)">A Secret Video 🎥</button>
+            </div>
+        </div>
+
+        <div id="p4" class="page">
+            <h2 style="color: var(--accent-red);">For You...</h2>
+            <div style="border-radius: 20px; overflow: hidden; border: 4px solid white;">
+                <iframe width="100%" height="220" src="https://www.youtube.com/embed/BthbN9hb5vk" frameborder="0"></iframe>
+            </div>
+            <div class="quote-box">
+                "Relish this remarkable ride." <span class="movie-title">— About Time</span>
+            </div>
+            <div class="nav-btn-container">
+                <button class="back-link" onclick="prevPage(3)">← Back</button>
+                <button class="yes-btn" style="width: auto;" onclick="nextPage(5)">Final Surprise 🔓</button>
+            </div>
+        </div>
+
+        <div id="p5" class="page">
+            <h1 style="color: var(--accent-red); font-size: 1.4rem;">Forever Yours, Rajshree</h1>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0;">
+                <img src="her5.jpeg" style="width:100%; height:160px; object-fit:cover; object-position: center; border-radius:15px; border: 2px solid white;">
+                <img src="her6.jpeg" style="width:100%; height:160px; object-fit:cover; object-position: center; border-radius:15px; border: 2px solid white;">
+                <img src="her7.jpeg" style="width:100%; height:160px; object-fit:cover; object-position: center; border-radius:15px; border: 2px solid white;">
+                <img src="her8.jpeg" style="width:100%; height:160px; object-fit:cover; object-position: center; border-radius:15px; border: 2px solid white;">
+            </div>
+            <div class="quote-box">"I would find you in any lifetime."</div>
+            <button class="back-link" style="width: 100%;" onclick="prevPage(4)">← Re-watch Video</button>
+        </div>
+    </div>
+
+    <script>
+        let noCount = 0;
+        const noMessages = ["Are you sure? 🥺", "Think again... 😭", "Rajshree please? 💔", "Not allowed! 🚫"];
+
+        function guiltTrip() {
+            const noBtn = document.getElementById('noBtn');
+            const container = document.getElementById('containerBox');
+            const maxWidth = container.clientWidth - noBtn.clientWidth;
+            const maxHeight = container.clientHeight - noBtn.clientHeight;
+
+            let newX = Math.random() * maxWidth;
+            let newY = Math.random() * maxHeight;
+            
+            if (newY < 80) newY += 100; // Avoid overlapping YES button at top
+
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+            noBtn.style.marginLeft = '0';
+
+            if (noCount < 4) {
+                noBtn.innerText = noMessages[noCount];
+                noCount++;
+            }
+        }
+
+        function celebrateSuccess() {
+            const items = ['🎈', '🍬', '🍭', '💖', '✨', '🌹', '🍫'];
+            for(let i=0; i<80; i++) {
+                setTimeout(() => {
+                    const e = document.createElement('div');
+                    e.className = 'drop';
+                    e.innerText = items[Math.floor(Math.random() * items.length)];
+                    e.style.left = Math.random() * 100 + 'vw';
+                    document.body.appendChild(e);
+                    setTimeout(() => e.remove(), 5000);
+                }, i * 50);
+            }
+            setTimeout(() => { nextPage(2); }, 1500);
+        }
+
+        function nextPage(num) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('p' + num).classList.add('active');
+        }
+
+        function prevPage(num) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('p' + num).classList.add('active');
+        }
+    </script>
+</body>
+</html>
